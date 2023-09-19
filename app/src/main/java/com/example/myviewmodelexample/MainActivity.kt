@@ -21,12 +21,20 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.lifecycleScope
 import com.example.myviewmodelexample.ui.theme.MyViewModelExampleTheme
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val viewModel: MyViewModel by viewModels()
+
+        lifecycleScope.launch {
+            //here you could do stuff - getting from api etc and store
+            //in viewmodel
+
+        }
 
 
         setContent {
@@ -83,7 +91,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ShowCounter(counter: Int, modifier: Modifier = Modifier) {
     Text(
-        text = "Counter value: $counter!",
+        text = "Counter value: $counter",
         modifier = modifier,
         fontSize = 26.sp
     )
